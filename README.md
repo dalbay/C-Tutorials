@@ -6,8 +6,7 @@
 | Properties      | Description         
 | ------------- |:-------------:|  
 |   Data    | Gets a collection of key/value pairs that provide additional user-defined information about the exception. |
-| HelpLink | 	
-Gets or sets a link to the help file associated with this exception. |
+| HelpLink | Gets or sets a link to the help file associated with this exception. |
 | HResult | Gets or sets HRESULT, a coded numerical value that is assigned to a specific exception. |
 | InnerException | Gets the Exception instance that caused the current exception.  |
 | Message | Gets a message that describes the current exception.|
