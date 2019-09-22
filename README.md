@@ -2,10 +2,18 @@
 
 ## C# Exception Handling
 
-### Compare Validation
-| Property      | Description         
+### SystemException Class
+| Properties      | Description         
 | ------------- |:-------------:|  
-|       | 
+|   Data    | Gets a collection of key/value pairs that provide additional user-defined information about the exception. |
+| HelpLink | 	
+Gets or sets a link to the help file associated with this exception. |
+| HResult | Gets or sets HRESULT, a coded numerical value that is assigned to a specific exception. |
+| InnerException | Gets the Exception instance that caused the current exception.  |
+| Message | Gets a message that describes the current exception.|
+|Source|Gets or sets the name of the application or the object that causes the error.|
+|StackTrace|Gets a string representation of the immediate frames on the call stack.|
+|TargetSite|Gets the method that throws the current exception.
 
 
 ![Exception Handling image](./images/exceptionHandling.png)
@@ -53,8 +61,7 @@ using (var font1 = new Font("Arial", 10.0f))
 }
 ```
 #### Example try-finally
-*docs.microsoft.com example*
-In the following example, an exception from the TryCast method is caught in a method farther up the call stack.
+*docs.microsoft.com example* - an exception from the TryCast method is caught in a method farther up the call stack.
 
 ```C#
 public class ThrowTestB
