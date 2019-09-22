@@ -14,7 +14,7 @@
 |StackTrace|Gets a string representation of the immediate frames on the call stack.|
 |TargetSite|Gets the method that throws the current exception.
 
-
+---
 ### Example 1 try-catch-finally
 ```C#
 try
@@ -59,6 +59,7 @@ using (var font1 = new Font("Arial", 10.0f))
   }
 }
 ```
+---
 ### Example 2 try-catch-finally
 *docs.microsoft.com example* - an exception from the TryCast method is caught in a method farther up the call stack.
 
@@ -115,6 +116,7 @@ public class ThrowTestB
     // Unhandled Exception: System.InvalidCastException: Specified cast is not valid.
 }
 ```
+---
 ### Example 3 try-catch
 ![Exception Handling image](./images/exceptionHandling.png)
 ```C#
