@@ -281,5 +281,75 @@ int main()
 - Assemblies: System.IO.FileSystem.dll, mscorlib.dll, netstandard.dll
 - *Exposes instance methods for creating, moving, and enumerating through directories and subdirectories. This class cannot be inherited.*
 - Use the DirectoryInfo class for typical operations such as copying, moving, renaming, creating, and deleting directories.
-- If you are going to reuse an object several times, consider using the instance method of DirectoryInfo instead of the corresponding static methods of the Directory class, because a security check will not always be necessary.
+- If you are going to reuse an object several times, consider using the instance method of DirectoryInfo instead of the corresponding static methods of the Directory class, because a security check will not always be necessary.  
+
+#### Constructors
+- *DirectoryInfo(String)* - Initializes a new instance of the DirectoryInfo class on the specified path.
+#### Fields
+- *FullPath* - Represents the fully qualified path of the directory or file.(Inherited from FileSystemInfo)
+- *OriginalPath* - The path originally specified by the user, whether relative or absolute.(Inherited from FileSystemInfo)
+#### Properties
+- *Attributes* - Gets or sets the attributes for the current file or directory.
+- *CreationTime* - Gets or sets the creation time of the current file or directory.
+- *Exists* - Gets a value indicating whether a file exists.
+- *Extension* - Gets the string representing the extension part of the file.
+- *FullName	* - Gets the full path of the directory or file.
+- *LastAccessTime* - Gets or sets the time the current file or directory was last accessed.
+- *LastWriteTime* - Gets or sets the time when the current file or directory was last written to.
+- *Name* - Gets the name of the file.
+- *Parent* - Gets the parent directory of a specified subdirectory.
+- *Root* - Gets the root portion of the directory.
+
+#### Methods
+- *Create()* - Creates a Directory.
+- *Delete()* - Deletes this DirectoryInfo if it is empty.
+- *EnumerateDirectories()* - Returns an enumerable collection of directory information in the current directory.
+- *EnumerateFiles()* - Returns an enumerable collection of file information in the current directory.
+- *Equals(Object)* - Determines whether the specified object is equal to the current object.
+- *GetDirectories()* - Returns the subdirectories of the current directory.
+- *GetFiles()* - Returns a file list from the current directory.
+- *GetType()* - Gets the Type of the current instance.
+- *MoveTo(String)* - Moves a DirectoryInfo instance and its contents to a new path.
+- *Refresh()* - Refreshes the state of the object. (Inherited from FileSystemInfo)
+- *ToString()* - Returns the original path that was passed to the DirectoryInfo constructor. Use the FullName or Name properties for the full path or file/directory name instead of this method.  
+- . . .  
+<br/>  
+
+***Example:***  
+The following example demonstrates some of the main members of the DirectoryInfo class.
+```C#
+using namespace System;
+using namespace System::IO;
+int main()
+{
+   
+   // Specify the directories you want to manipulate.
+   DirectoryInfo^ di = gcnew DirectoryInfo( "c:\\MyDir" );
+   try
+   {
+      
+      // Determine whether the directory exists.
+      if ( di->Exists )
+      {
+         
+         // Indicate that the directory already exists.
+         Console::WriteLine( "That path exists already." );
+         return 0;
+      }
+      
+      // Try to create the directory.
+      di->Create();
+      Console::WriteLine( "The directory was created successfully." );
+      
+      // Delete the directory.
+      di->Delete();
+      Console::WriteLine( "The directory was deleted successfully." );
+   }
+   catch ( Exception^ e ) 
+   {
+      Console::WriteLine( "The process failed: {0}", e );
+   }
+
+}
+```
 ---
