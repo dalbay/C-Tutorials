@@ -207,11 +207,12 @@ namespace ConsoleApplication
 - *Open(FileMode)* - Opens a file in the specified mode.
 - *Replace(String, String, Boolean)* - Replaces the contents of a specified file with the file described by the current FileInfo object, deleting the original file, and creating a backup of the replaced file. Also specifies whether to ignore merge errors.
 - *ToString()* - Returns the path as a string. Use the Name property for the full path.
-- . . . 
+- . . .  
+<br/>
 ***Example:***  
 The following example demonstrates some of the main members of the FileInfo class.  
 When the properties are first retrieved, FileInfo calls the Refresh method and caches information about the file. On subsequent calls, you must call Refresh to get the latest copy of the information.
-```C`
+```C
 using namespace System;
 using namespace System::IO;
 
