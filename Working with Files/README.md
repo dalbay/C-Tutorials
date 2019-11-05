@@ -526,5 +526,10 @@ class Example
 //       This is the third line.
 //       This is the fourth and final line.
 ```  
+### StreamWriter Class
+- Namespace: System.IO
+- Assemblies: System.IO.dll, mscorlib.dll, netstandard.dll, System.Runtime.Extensions.dll
+- *Implements a TextWriter for writing characters to a stream in a particular encoding.*
+- StreamWriter is designed for character output in a particular encoding, whereas classes derived from Stream are designed for byte input and output.
 
 ---  
