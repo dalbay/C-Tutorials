@@ -6,12 +6,12 @@ namespace ExceptionHandling
 {
     public partial class Form1 : Form
     {
-        static ArrayList scoreCard;
+        static ArrayList _scoreCard;
         public Form1()
         {
             InitializeComponent();
             // initialize the scoreCard ArrayList
-            scoreCard = new ArrayList();
+            _scoreCard = new ArrayList();
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -33,7 +33,7 @@ namespace ExceptionHandling
                 else
                 {
                     errorProviderEmpty.SetError(txtScore, "");
-                    scoreCard.Add((Convert.ToUInt32(txtScore.Text))); // checking positive number
+                    _scoreCard.Add((Convert.ToUInt32(txtScore.Text))); // checking positive number
                     lblResult.Text = txtScore.Text + " was succesfully added to your scorecard.";
                 }
 
@@ -57,15 +57,16 @@ namespace ExceptionHandling
             {
                 lblResult.Text = e_null.Message.ToString();
             }
+            txtScore.Text = "";
         }
         public static string CalculateRubic()
         {
             int score = 0;
-            foreach (var item in scoreCard)
+            foreach (var item in _scoreCard)
             {
                 score += Convert.ToInt32(item);
             }
-            var value = Convert.ToInt32(score / scoreCard.Count);
+            var value = Convert.ToInt32(score / _scoreCard.Count);
             var result = "";
             switch (value)
             {
@@ -88,7 +89,12 @@ namespace ExceptionHandling
 
         private void button1_Click(object sender, EventArgs e)
         {
+            txtScore.Text = "";
             lblFinalResult.Text = CalculateRubic();
         }
     }
 }
+
+
+
+
