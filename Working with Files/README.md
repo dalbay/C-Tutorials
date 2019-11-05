@@ -209,10 +209,13 @@ namespace ConsoleApplication
 - *ToString()* - Returns the path as a string. Use the Name property for the full path.
 - . . .  
 <br/>
+
 ***Example:***  
+
 The following example demonstrates some of the main members of the FileInfo class.  
-When the properties are first retrieved, FileInfo calls the Refresh method and caches information about the file. On subsequent calls, you must call Refresh to get the latest copy of the information.
-```C
+When the properties are first retrieved, FileInfo calls the Refresh method and caches information about the file. On subsequent calls, you must call Refresh to get the latest copy of the information.  
+
+```C#
 using namespace System;
 using namespace System::IO;
 
