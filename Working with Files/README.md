@@ -590,5 +590,5 @@ The following example shows how to use a StreamWriter object to write a file tha
 			Console.Write(ex.Message);
 		}
 	}
-```
+```  
 ---  
