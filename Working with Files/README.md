@@ -531,5 +531,64 @@ class Example
 - Assemblies: System.IO.dll, mscorlib.dll, netstandard.dll, System.Runtime.Extensions.dll
 - *Implements a TextWriter for writing characters to a stream in a particular encoding.*
 - StreamWriter is designed for character output in a particular encoding, whereas classes derived from Stream are designed for byte input and output.
+- StreamWriter defaults to using an instance of UTF8Encoding unless specified otherwise.
 
+#### Constructors
+- *StreamWriter(Stream)* - Initializes a new instance of the StreamWriter class for the specified stream by using UTF-8 encoding and the default buffer size.
+- . . .
+
+#### Fields
+- *CoreNewLine* - Stores the newline characters used for this TextWriter.(Inherited from TextWriter)
+- *Null* - Provides a StreamWriter with no backing store that can be written to, but not read from.
+
+#### Properties
+- *AutoFlush* , *BaseStream*, *Encoding*, *FormatProvider*, *NewLine*
+
+#### Methods
+- *Close()* - Closes the current StreamWriter object and the underlying stream.
+- *Dispose()* - Releases all resources used by the TextWriter object.
+- *Peek()* - Returns the next available character but does not consume it.
+- *Flush()* - Clears all buffers for the current writer and causes any buffered data to be written to the underlying stream.
+- *Write()* - Writes the text representation of a Boolean value to the text stream.
+- *WriteAsync(Char)* - Asynchronously writes a character to the stream.
+- *WriteLine()* - Writes a line terminator to the text stream.
+- *WriteLineAsync()* - Asynchronously writes a line terminator to the stream.
+- . . .  
+<br/>  
+
+***Example:***  
+The following example shows how to use a StreamWriter object to write a file that lists the directories on the C drive, and then uses a StreamReader object to read and display each directory name. A good practice is to use these objects in a using statement so that the unmanaged resources are correctly disposed. The using statement automatically calls Dispose on the object when the code that is using it has completed.  
+```C#
+   {
+		try
+		{
+			// Get the directories currently on the C drive.
+			DirectoryInfo[] cDirs = new DirectoryInfo(@"c:\").GetDirectories();
+
+			// Write each directory name to a file.
+			using (StreamWriter sw = new StreamWriter("CDriveDirs.txt"))
+			{
+				foreach (DirectoryInfo dir in cDirs)
+				{
+					sw.WriteLine(dir.Name);
+
+				}
+			}
+
+			// Read and show each line from the file.
+			string line = "";
+			using (StreamReader sr = new StreamReader("CDriveDirs.txt"))
+			{
+				while ((line = sr.ReadLine()) != null)
+				{
+					Console.WriteLine(line);
+				}
+			}
+		}
+		catch (System.IO.IOException ex)
+		{
+			Console.Write(ex.Message);
+		}
+	}
+```
 ---  
